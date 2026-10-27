@@ -1,0 +1,222 @@
+Buatkan sebuah aplikasi web interaktif bernama **“KEUANGANKU — Pencatatan Pemasukan dan Pengeluaran Pribadi”**. Aplikasi harus berfungsi nyata, bukan hanya berupa desain atau prototype.
+
+Aplikasi digunakan untuk mencatat seluruh pemasukan dan pengeluaran setiap hari, memantau batas anggaran, memberikan peringatan otomatis jika pengeluaran melebihi budget, serta menampilkan laporan harian dan bulanan.
+
+Gunakan Bahasa Indonesia untuk seluruh tampilan. Desain harus modern, profesional, minimalis, responsif, nyaman digunakan di laptop maupun HP, dengan kartu informasi, ikon yang relevan, grafik, tabel, dan warna yang mudah dibaca.
+
+## A. DASHBOARD UTAMA
+
+Tampilkan ringkasan keuangan yang otomatis diperbarui:
+1. Total pemasukan hari ini.
+2. Total pengeluaran hari ini.
+3. Saldo hari ini.
+4. Total pemasukan bulan ini.
+5. Total pengeluaran bulan ini.
+6. Saldo bersih bulan ini.
+7. Sisa anggaran makan hari ini.
+8. Sisa anggaran bensin dan air minum galon bulan ini.
+
+Rumus:
+- Saldo bersih = total pemasukan - total pengeluaran.
+- Sisa anggaran = batas anggaran - jumlah pengeluaran yang sudah tercatat.
+- Persentase penggunaan anggaran = pengeluaran / batas anggaran × 100%.
+
+Tampilkan indikator penggunaan anggaran berupa progress bar:
+- Hijau jika penggunaan masih di bawah 80%.
+- Kuning jika mencapai 80% sampai 99%.
+- Merah jika mencapai atau melebihi 100%.
+
+Jangan menampilkan saldo negatif sebagai angka positif. Jika pengeluaran lebih besar daripada pemasukan, tampilkan kondisi defisit dengan jelas.
+
+## B. FORM PENCATATAN TRANSAKSI
+
+Buat tombol “+ Tambah Transaksi” yang membuka formulir berisi:
+- Tanggal transaksi, otomatis menggunakan tanggal hari ini tetapi bisa diubah.
+- Jenis transaksi: Pemasukan atau Pengeluaran.
+- Kategori transaksi.
+- Nama transaksi atau keterangan.
+- Nominal rupiah.
+- Metode pembayaran: Tunai, Transfer, E-wallet, atau lainnya.
+- Catatan tambahan opsional.
+- Tombol Simpan dan Batal.
+
+Kategori pemasukan:
+- Gaji.
+- Tunjangan.
+- Usaha.
+- Bonus.
+- Hadiah.
+- Pemasukan lainnya.
+
+Kategori pengeluaran:
+- Makan pagi.
+- Makan siang.
+- Makan malam.
+- Bensin.
+- Air minum galon.
+- Belanja kebutuhan.
+- Transportasi.
+- Tagihan.
+- Kesehatan.
+- Pendidikan.
+- Hiburan.
+- Lain-lain.
+
+Kategori dan nominal anggaran harus dapat diedit melalui menu Pengaturan.
+
+Setiap transaksi yang disimpan harus langsung memperbarui dashboard, saldo, laporan, grafik, dan sisa anggaran.
+
+## C. SISTEM ANGGARAN DAN PERINGATAN OTOMATIS
+
+Tetapkan anggaran awal berikut:
+
+ANGGARAN HARIAN:
+1. Makan pagi: Rp15.000 per hari.
+2. Makan siang: Rp10.000 per hari.
+3. Makan malam: Rp25.000 per hari.
+4. Total batas anggaran makan: Rp50.000 per hari.
+
+ANGGARAN BULANAN:
+1. Bensin: Rp500.000 per bulan.
+2. Air minum galon: Rp200.000 per bulan.
+
+Aturan peringatan:
+
+1. Setiap transaksi pengeluaran yang termasuk kategori dengan batas anggaran harus diperiksa secara otomatis.
+2. Jika pengeluaran makan pagi dalam satu hari melebihi Rp15.000, tampilkan peringatan merah.
+3. Jika pengeluaran makan siang dalam satu hari melebihi Rp10.000, tampilkan peringatan merah.
+4. Jika pengeluaran makan malam dalam satu hari melebihi Rp25.000, tampilkan peringatan merah.
+5. Jika total pengeluaran bensin pada bulan berjalan melebihi Rp500.000, tampilkan peringatan merah.
+6. Jika total pengeluaran air minum galon pada bulan berjalan melebihi Rp200.000, tampilkan peringatan merah.
+7. Tampilkan peringatan kuning ketika penggunaan anggaran mencapai 80% atau lebih tetapi belum melewati batas.
+8. Ketika anggaran mencapai tepat 100%, tampilkan status “Batas anggaran tercapai”.
+9. Jika anggaran terlampaui, tampilkan jumlah kelebihan pengeluaran secara otomatis.
+10. Jangan menganggap transaksi yang dihapus atau dibatalkan sebagai pengeluaran.
+11. Perhitungan harus berdasarkan tanggal transaksi yang dipilih, bukan hanya tanggal saat aplikasi dibuka.
+12. Transaksi dari hari atau bulan sebelumnya tidak boleh tercampur dengan periode berjalan.
+
+Contoh pesan peringatan:
+- “⚠️ Anggaran makan pagi terlampaui Rp5.000. Batas harian Rp15.000, pengeluaran hari ini Rp20.000.”
+- “⚠️ Pengeluaran bensin sudah mencapai Rp450.000 dari Rp500.000. Sisa anggaran Rp50.000.”
+- “🚨 Anggaran air minum galon terlampaui Rp25.000. Total bulan ini Rp225.000.”
+- “✅ Pengeluaran masih sesuai anggaran.”
+
+Tampilkan notifikasi langsung setelah transaksi disimpan, serta bagian khusus “Peringatan Anggaran” pada dashboard.
+
+Jangan menghitung batas makan hanya berdasarkan satu transaksi. Jika terdapat beberapa transaksi makan pagi pada tanggal yang sama, jumlahkan semuanya terlebih dahulu sebelum membandingkannya dengan batas harian. Terapkan prinsip yang sama untuk makan siang, makan malam, bensin, dan air minum galon sesuai periode anggarannya.
+
+Batas Rp50.000 untuk makan adalah batas gabungan harian, sedangkan masing-masing kategori juga memiliki batas tersendiri. Tampilkan kedua jenis pemeriksaan tersebut.
+
+## D. RIWAYAT TRANSAKSI
+
+Buat tabel transaksi dengan kolom:
+- Tanggal.
+- Jenis transaksi.
+- Kategori.
+- Keterangan.
+- Pemasukan.
+- Pengeluaran.
+- Metode pembayaran.
+- Aksi Edit dan Hapus.
+
+Fitur tambahan:
+- Pencarian transaksi berdasarkan nama atau keterangan.
+- Filter berdasarkan tanggal, bulan, tahun, jenis transaksi, dan kategori.
+- Pengurutan transaksi terbaru atau terlama.
+- Konfirmasi sebelum menghapus transaksi.
+- Perubahan saldo dan anggaran otomatis setelah transaksi diedit atau dihapus.
+- Tampilkan nominal menggunakan format Rupiah Indonesia, misalnya Rp1.250.000.
+
+## E. LAPORAN KEUANGAN
+
+Buat menu laporan dengan pilihan harian, mingguan, bulanan, dan tahunan.
+
+Tampilkan:
+1. Total pemasukan.
+2. Total pengeluaran.
+3. Saldo bersih.
+4. Total pengeluaran setiap kategori.
+5. Perbandingan pemasukan dan pengeluaran.
+6. Kategori pengeluaran terbesar.
+7. Jumlah hari yang melebihi anggaran.
+8. Total kelebihan anggaran.
+9. Ringkasan pengeluaran makan pagi, makan siang, makan malam, bensin, dan air minum galon.
+
+Sediakan grafik batang untuk perbandingan pemasukan dan pengeluaran, serta grafik lingkaran untuk komposisi pengeluaran berdasarkan kategori.
+
+Sediakan tombol:
+- “Unduh Laporan CSV”.
+- “Cetak Laporan”.
+- “Ekspor Data Transaksi”.
+- “Impor Data Transaksi”.
+
+Pastikan file CSV menggunakan format yang dapat dibuka dengan Microsoft Excel.
+
+## F. MENU ANGGARAN
+
+Buat halaman khusus untuk mengatur anggaran:
+- Makan pagi per hari.
+- Makan siang per hari.
+- Makan malam per hari.
+- Total makan per hari.
+- Bensin per bulan.
+- Air minum galon per bulan.
+- Ambang notifikasi anggaran.
+- Tambah kategori anggaran baru.
+
+Nilai awal harus sesuai dengan anggaran yang telah ditentukan. Pengguna dapat mengubah nominal kapan saja. Perubahan batas anggaran tidak boleh mengubah nominal transaksi yang sudah tersimpan.
+
+## G. PENYIMPANAN DATA
+
+Simpan transaksi secara persisten menggunakan localStorage agar data tetap tersedia ketika aplikasi ditutup dan dibuka kembali pada browser yang sama.
+
+Ketentuan:
+- Jangan menggunakan data contoh sebagai transaksi nyata.
+- Saat pertama kali dibuka, tampilkan dashboard kosong dengan nilai nol jika belum ada transaksi.
+- Simpan tanggal transaksi dalam format yang konsisten dan hindari kesalahan perubahan tanggal akibat zona waktu.
+- Sediakan fitur pencadangan dan pemulihan data melalui file JSON.
+- Pastikan transaksi tidak hilang ketika halaman dimuat ulang.
+- Gunakan ID unik untuk setiap transaksi.
+- Pastikan pengeditan, penghapusan, filter, dan laporan bekerja pada data yang benar-benar tersimpan.
+
+Jelaskan pada halaman pengaturan bahwa localStorage menyimpan data di browser/perangkat yang digunakan dan tidak otomatis menyinkronkan data antarperangkat. Sediakan fitur ekspor dan impor cadangan.
+
+## H. DESAIN ANTARMUKA
+
+Gunakan tampilan dashboard seperti aplikasi keuangan modern:
+- Sidebar menu: Dashboard, Tambah Transaksi, Riwayat Transaksi, Anggaran, Laporan, dan Pengaturan.
+- Header menampilkan nama aplikasi, tanggal hari ini, dan ringkasan periode.
+- Kartu pemasukan berwarna hijau.
+- Kartu pengeluaran berwarna merah atau jingga.
+- Kartu saldo menggunakan warna netral.
+- Kartu anggaran dilengkapi progress bar.
+- Peringatan anggaran harus terlihat jelas tetapi tidak menutupi seluruh halaman.
+- Tabel rapi dan mudah dibaca.
+- Gunakan ikon yang konsisten.
+- Format angka menggunakan rupiah tanpa angka desimal.
+- Desain responsif dan tidak mengalami horizontal overflow pada HP.
+
+## I. VALIDASI DAN PENGUJIAN
+
+Sebelum menyelesaikan aplikasi, lakukan pengujian berikut:
+
+1. Simpan pemasukan Rp3.000.000 dan pastikan saldo bertambah.
+2. Simpan pengeluaran makan pagi Rp10.000 dan pastikan anggaran tersisa Rp5.000.
+3. Tambahkan pengeluaran makan pagi Rp7.000 pada tanggal yang sama. Pastikan total menjadi Rp17.000 dan peringatan muncul karena kelebihan Rp2.000.
+4. Catat makan pagi Rp15.000, makan siang Rp10.000, dan makan malam Rp25.000. Pastikan total makan Rp50.000 dan status batas anggaran tercapai.
+5. Tambahkan bensin hingga total bulanan Rp510.000. Pastikan peringatan menunjukkan kelebihan Rp10.000.
+6. Tambahkan air minum galon hingga total bulanan Rp210.000. Pastikan peringatan menunjukkan kelebihan Rp10.000.
+7. Edit dan hapus transaksi, lalu pastikan saldo, laporan, dan peringatan diperbarui.
+8. Ubah bulan laporan dan pastikan hanya transaksi dalam periode yang dipilih yang dihitung.
+9. Muat ulang browser dan pastikan data tetap tersimpan.
+10. Uji ekspor dan impor data.
+
+## J. HASIL AKHIR
+
+Bangun aplikasi lengkap dengan navigasi yang berfungsi, formulir transaksi yang dapat digunakan, penyimpanan data, perhitungan anggaran, peringatan otomatis, grafik, filter, dan laporan.
+
+Jangan hanya menghasilkan mockup, gambar dashboard, atau tombol yang tidak berfungsi. Implementasikan seluruh fitur menggunakan HTML, CSS, dan JavaScript sesuai kemampuan Gemini Canvas.
+
+Prioritaskan ketepatan perhitungan keuangan, kemudahan pencatatan harian, dan peringatan anggaran yang akurat.
+
+Setelah aplikasi dibuat, tampilkan aplikasi yang dapat langsung diuji. Jika ada fitur yang belum berjalan, perbaiki terlebih dahulu sebelum menyatakan aplikasi selesai.
